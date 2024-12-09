@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calcu.css">
+</head>
+<body>
+    <div class="goku">
+    <center>
+    <h1>Calculadora</h1>
+</center>
+<center>
+  <input id="numero1" type="number" placeholder="Número 1">
+  <select id="operacion">
+    <option value="+">Suma</option>
+    <option value="-">Resta</option>
+    <option value="*">Multiplicación</option>
+    <option value="/">División</option>
+  </select>
+  <input id="numero2" type="number" placeholder="Número 2">
+  <button onclick="calcular()">Calcular</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcular() {
+      let numero1 = parseFloat(document.getElementById('numero1').value);
+      let operacion = document.getElementById('operacion').value;
+      let numero2 = parseFloat(document.getElementById('numero2').value);
+      let resultado;
+
+      switch (operacion) {
+        case '+':
+          resultado = numero1 + numero2;
+          break;
+        case '-':
+          resultado = numero1 - numero2;
+          break;
+        case '*':
+          resultado = numero1 * numero2;
+          break;
+        case '/':
+          if (numero2 !== 0) {
+            resultado = numero1 / numero2;
+          } else {
+            resultado = 'Error: División por cero';
+          }
+          break;
+        default:
+          resultado = 'Error';
+      }
+
+      document.getElementById('resultado').innerHTML = 'Resultado: ' + resultado;
+    }
+  </script>
+  <img src="http://selbst-management.biz/wp-content/uploads/2013/10/albert-einstein.jpg" alt="" width="230">
+  </center>
+</div>
+</body>
+</html>
